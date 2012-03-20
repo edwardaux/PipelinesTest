@@ -36,7 +36,7 @@ public class TestStageDiskr extends TestCase {
 		Pipe pipe = new Pipe();
 		assertEquals(0, pipe.run("diskr blah | stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(5, output.size());
 		assertEquals("a", (String)output.get(0));
 		assertEquals("b", (String)output.get(1));

@@ -9,7 +9,7 @@ public class TestCommandShort extends TestCase {
 		Pipe.register("shorttest", ShortTest.class);
 		Pipe pipe = new Pipe();
 		assertEquals(0, pipe.run("literal 4|literal 3|literal 2|literal 1|shorttest 2|stem results"));
-		ArrayList results = (ArrayList)pipe.getParameters().get("results");
+		ArrayList<?> results = (ArrayList<?>)pipe.getParameters().get("results");
 		assertEquals(2, results.size());
 		assertEquals("3", results.get(0));
 		assertEquals("4", results.get(1));

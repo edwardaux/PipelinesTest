@@ -27,7 +27,7 @@ public class TestCommandCommitSequencing extends TestCase {
 	}
 	
 	public static class CommitSleeperTest extends Stage {
-		public static ArrayList results = new ArrayList();
+		public static ArrayList<String> results = new ArrayList<String>();
 		public int execute(String args) throws PipeException {
 			int time = Integer.parseInt(args);
 			msg("precommit-10");

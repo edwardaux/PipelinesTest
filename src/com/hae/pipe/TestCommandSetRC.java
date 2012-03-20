@@ -1,7 +1,5 @@
 package com.hae.pipe;
 
-import com.hae.pipe.TestCommandEofReportSet.*;
-
 import junit.framework.*;
 
 public class TestCommandSetRC extends TestCase {

@@ -15,7 +15,7 @@ public class TestStageStem extends TestCase {
 	}
 	
 	public void testStem2Stem() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -23,24 +23,24 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
-		assertEquals("a", (String)output.get(0));
-		assertEquals("b", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
+		assertEquals("a", output.get(0));
+		assertEquals("b", output.get(1));
+		assertEquals("c", output.get(2));
 	}
 
 	public void testLiteral2Stem() {
 		Pipe pipe = new Pipe();
 		assertEquals(0, pipe.run("literal c|literal b|literal a| stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
-		assertEquals("a", (String)output.get(0));
-		assertEquals("b", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
+		assertEquals("a", output.get(0));
+		assertEquals("b", output.get(1));
+		assertEquals("c", output.get(2));
 	}
 
 	public void testStem2Stem2Stem() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -48,14 +48,14 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output | stem output2"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
-		assertEquals("a", (String)output.get(0));
-		assertEquals("b", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
-		ArrayList output2 = (ArrayList)pipe.getParameters().get("output2");
-		assertEquals("a", (String)output2.get(0));
-		assertEquals("b", (String)output2.get(1));
-		assertEquals("c", (String)output2.get(2));
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
+		assertEquals("a", output.get(0));
+		assertEquals("b", output.get(1));
+		assertEquals("c", output.get(2));
+		ArrayList<?> output2 = (ArrayList<?>)pipe.getParameters().get("output2");
+		assertEquals("a", output2.get(0));
+		assertEquals("b", output2.get(1));
+		assertEquals("c", output2.get(2));
 	}
 
 	public void testStemMissingInput() {
@@ -63,14 +63,15 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem missing | stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(0, output.size());
 	}
 
+	@SuppressWarnings("unchecked")
 	public void testOverwrite1() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
-		ArrayList output = new ArrayList();
+		ArrayList<String> output = new ArrayList<String>();
 		output.add("d"); output.add("e"); 
 		
 		Pipe pipe = new Pipe();
@@ -79,16 +80,17 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output"));
 
-		output = (ArrayList)pipe.getParameters().get("output");
-		assertEquals("a", (String)output.get(0));
-		assertEquals("b", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
+		output = (ArrayList<String>)pipe.getParameters().get("output");
+		assertEquals("a", output.get(0));
+		assertEquals("b", output.get(1));
+		assertEquals("c", output.get(2));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void testOverwrite2() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
-		ArrayList output = new ArrayList();
+		ArrayList<String> output = new ArrayList<String>();
 		output.add("d"); output.add("e"); output.add("f"); output.add("g"); output.add("h"); 
 		
 		Pipe pipe = new Pipe();
@@ -97,17 +99,17 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output"));
 
-		output = (ArrayList)pipe.getParameters().get("output");
+		output = (ArrayList<String>)pipe.getParameters().get("output");
 		assertEquals(5, output.size());
-		assertEquals("a", (String)output.get(0));
-		assertEquals("b", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
-		assertEquals("g", (String)output.get(3));
-		assertEquals("h", (String)output.get(4));
+		assertEquals("a", output.get(0));
+		assertEquals("b", output.get(1));
+		assertEquals("c", output.get(2));
+		assertEquals("g", output.get(3));
+		assertEquals("h", output.get(4));
 	}
 
 	public void testFrom1() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -115,14 +117,14 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input from 2 | stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(2, output.size());
-		assertEquals("b", (String)output.get(0));
-		assertEquals("c", (String)output.get(1));
+		assertEquals("b", output.get(0));
+		assertEquals("c", output.get(1));
 	}
 
 	public void testFrom2() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -130,12 +132,12 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input from 5 | stem output"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(0, output.size());
 	}
 
 	public void testFrom3() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add("b"); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -143,16 +145,16 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input from 2 | stem output from 3"));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(4, output.size());
-		assertEquals(null, (String)output.get(0));
-		assertEquals(null, (String)output.get(1));
-		assertEquals("b", (String)output.get(2));
-		assertEquals("c", (String)output.get(3));
+		assertEquals(null, output.get(0));
+		assertEquals(null, output.get(1));
+		assertEquals("b", output.get(2));
+		assertEquals("c", output.get(3));
 	}
 
 	public void testTypes1() {
-		ArrayList input = new ArrayList();
+		ArrayList<String> input = new ArrayList<String>();
 		input.add("a"); input.add(null); input.add("c");
 		
 		Pipe pipe = new Pipe();
@@ -160,15 +162,15 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output "));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(3, output.size());
-		assertEquals("a", (String)output.get(0));
-		assertEquals("", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
+		assertEquals("a", output.get(0));
+		assertEquals("", output.get(1));
+		assertEquals("c", output.get(2));
 	}
 
 	public void testTypes2() {
-		ArrayList input = new ArrayList();
+		ArrayList<Object> input = new ArrayList<Object>();
 		input.add(new Integer(123)); input.add(null); input.add(new Character('x'));
 		
 		Pipe pipe = new Pipe();
@@ -176,11 +178,11 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output "));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(3, output.size());
-		assertEquals("123", (String)output.get(0));
-		assertEquals("", (String)output.get(1));
-		assertEquals("x", (String)output.get(2));
+		assertEquals("123", output.get(0));
+		assertEquals("", output.get(1));
+		assertEquals("x", output.get(2));
 	}
 
 	public void testArray() {
@@ -189,10 +191,10 @@ public class TestStageStem extends TestCase {
 		
 		assertEquals(0, pipe.run("stem input | stem output "));
 
-		ArrayList output = (ArrayList)pipe.getParameters().get("output");
+		ArrayList<?> output = (ArrayList<?>)pipe.getParameters().get("output");
 		assertEquals(3, output.size());
-		assertEquals("a", (String)output.get(0));
-		assertEquals("", (String)output.get(1));
-		assertEquals("c", (String)output.get(2));
+		assertEquals("a", output.get(0));
+		assertEquals("", output.get(1));
+		assertEquals("c", output.get(2));
 	}
 }

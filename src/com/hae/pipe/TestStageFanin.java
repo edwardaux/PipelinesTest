@@ -1,7 +1,5 @@
 package com.hae.pipe;
 
-import com.hae.pipe.stages.*;
-
 import junit.framework.*;
 
 public class TestStageFanin extends TestCase {
