@@ -5,8 +5,6 @@ import java.util.*;
 import junit.framework.*;
 
 public class TestStageStem extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testSyntax() {
 		assertEquals(0, new Pipe().run("stem blah"));
 		assertEquals(-112, new Pipe().run("stem blah foo"));

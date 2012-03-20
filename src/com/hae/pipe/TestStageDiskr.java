@@ -6,8 +6,6 @@ import java.util.*;
 import junit.framework.*;
 
 public class TestStageDiskr extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testSyntax() {
 		writeFile("blah", new String[] { "a", "b", "c", "d", "e" });
 		assertEquals(0, new Pipe().run("< blah"));

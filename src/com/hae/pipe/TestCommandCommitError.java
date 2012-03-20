@@ -3,8 +3,6 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestCommandCommitError extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void test() {
 		Pipe.register("commit1", CommitBailTest.class);
 		Pipe.register("commit2", CommitBailTest2.class);

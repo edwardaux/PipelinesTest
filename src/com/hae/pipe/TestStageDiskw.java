@@ -5,8 +5,6 @@ import java.io.*;
 import junit.framework.*;
 
 public class TestStageDiskw extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testSyntax() {
 		assertEquals(0, new Pipe().run("literal | > blah"));
 		assertEquals(-127, new Pipe().run("> blah"));

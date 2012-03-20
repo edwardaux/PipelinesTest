@@ -3,8 +3,6 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestStageCommand extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testSyntax() {
 		// TODO how do we do this properly?
 		assertEquals(0, new Pipe().run("command | hole"));

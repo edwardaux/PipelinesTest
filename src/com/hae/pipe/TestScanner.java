@@ -5,8 +5,6 @@ import com.hae.pipe.stages.*;
 import junit.framework.*;
 
 public class TestScanner extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	private class ScannerResult {
 		public Scanner scanner;
 		public int rc;

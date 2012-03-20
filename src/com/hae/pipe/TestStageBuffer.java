@@ -3,8 +3,6 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestStageBuffer extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testSyntax() {
 		assertEquals(-60, new Pipe().run("buffer 1 /"));
 		assertEquals(-58, new Pipe().run("buffer x"));

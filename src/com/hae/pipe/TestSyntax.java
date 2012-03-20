@@ -3,8 +3,6 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestSyntax extends TestCase {
-	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
-	
 	public void testPipeUtil() {
 		assertEquals('|', PipeUtil.makeChar("|"));
 		assertEquals('|', PipeUtil.makeChar("7C"));
