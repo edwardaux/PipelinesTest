@@ -3,6 +3,8 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestStageAggrc extends TestCase {
+	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
+	
 	public void testAggrc() {
 		Pipe pipe = new Pipe();
 		assertEquals(0, pipe.run("literal 0 | literal 99 | literal 3   | literal 6  | aggrc | zzzcheck /99/"));

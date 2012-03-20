@@ -3,6 +3,8 @@ package com.hae.pipe;
 import junit.framework.*;
 
 public class TestCommandAddStream extends TestCase {
+	public static final String COPYRIGHT = "Copyright 2007,2012. H.A. Enterprises Pty Ltd. All Rights Reserved";
+	
 	public void testAddStream() {
 		Pipe.register("addstreamtest", AddStreamTest.class);
 		assertEquals(0, new Pipe().run("addstreamtest"));
